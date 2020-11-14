@@ -18,8 +18,6 @@ class ServerStatus(commands.Cog):
         embed = discord.Embed(title="Server Status", type="rich")
         vmem = psutil.virtual_memory()
         embed.add_field(name="RAM Usage", value=f"{round(vmem.used/1000000000, 2)}GB out of {round(vmem.total/1000000000, 2)}GB")
-        # 8051838976
-        # print(psutil.virtual_memory())
         embed.add_field(name="CPU Usage", value=f"{psutil.cpu_percent()}%")
         embed.add_field(name="Python information", value=sys.version, inline=True)
         embed.add_field(name="Platform information", value=sys.platform, inline=True)

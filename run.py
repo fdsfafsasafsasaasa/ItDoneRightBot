@@ -9,8 +9,8 @@ client = commands.Bot(command_prefix="!")
 
 
 # loading credentials into environemnt
-for key, value in json.load(open("/home/warsawpakt/Projects/itdoneright/tokens.json")).items():
-    os.environ['DISCORD_BOT_TOKEN'] = value
+for item in json.load(open("/home/warsawpakt/Projects/itdoneright/settings.json")).items():
+    os.environ[item[0]] = str(item[1])
 
 @client.command()
 @commands.is_owner()
@@ -28,4 +28,4 @@ for cog in os.listdir("./cogs"):
         client.load_extension(f'cogs.{cog[:-3]}')
 
 if __name__ == "__main__":
-    client.run(os.environ["DISCORD_BOT_TOKEN"])
+    client.run(os.environ["DISCORD_BOT_KEY"])

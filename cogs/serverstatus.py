@@ -10,7 +10,7 @@ class ServerStatus(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def getStatus(self, ctx):
+    async def status(self, ctx):
         """
         Gets server status
         ctx: discord.Context

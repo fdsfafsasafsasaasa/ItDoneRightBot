@@ -9,7 +9,7 @@ client = commands.Bot(command_prefix="!")
 
 
 # loading credentials into environemnt
-for item in json.load(open("/home/warsawpakt/Projects/itdoneright/settings.json")).items():
+for item in json.load(open("settings.json")).items():
     os.environ[item[0]] = str(item[1])
 
 @client.command()

@@ -12,7 +12,7 @@ import os
 for item in json.load(open("settings.json")).items():
     os.environ[item[0]] = str(item[1])
 
-client = commands.Bot(command_prefix=os.environ["DISCORD_BOT_TOKEN"])
+client = commands.Bot(command_prefix=os.environ["DISCORD_BOT_PREFIX"])
 
 @client.command()
 @commands.is_owner()

@@ -5,12 +5,14 @@ import discord
 import json
 import os
 
-client = commands.Bot(command_prefix="!")
+# client = commands.Bot(command_prefix="!")
 
 
 # loading credentials into environemnt
 for item in json.load(open("settings.json")).items():
     os.environ[item[0]] = str(item[1])
+
+client = commands.Bot(command_prefix=os.environ["DISCORD_BOT_TOKEN"])
 
 @client.command()
 @commands.is_owner()
@@ -29,3 +31,4 @@ for cog in os.listdir("./cogs"):
 
 if __name__ == "__main__":
     client.run(os.environ["DISCORD_BOT_KEY"])
+# vimming

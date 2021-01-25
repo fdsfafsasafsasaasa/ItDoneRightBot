@@ -20,7 +20,7 @@ class ServerStatus(commands.Cog):
         embed.add_field(name="RAM Usage", value=f"{round(vmem.used/1000000000, 2)}GB out of {round(vmem.total/1000000000, 2)}GB")
         embed.add_field(name="CPU Usage", value=f"{psutil.cpu_percent()}%")
         embed.add_field(name="Python information", value=sys.version, inline=True)
-        embed.add_field(name="Platform information", value=sys.platform, inline=True)
+        embed.add_field(name="Platform information", value=open("/etc/os-release", "r").read().split("\n")[0].split('"')[1], inline=True)
         await ctx.send(embed=embed)
 
 
